@@ -13,4 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require nvd3-rails
+//= require bootstrap
+//= require leaflet
 //= require_tree .
+
