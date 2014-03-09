@@ -4,28 +4,44 @@
  <div class="col-md-8">
   <div id="map" style="width: 100%; height: 640px; border: solid black 1px;">
   </div>
-  <strong>Key</strong>
-  <ul>
-   <li><i class="fa fa-info"></i> - Railway station usage data</li>
-   <li><i class="fa fa-thumbs-up"></i> - Yorkshire Water improvements</li>
-  </ul>
  </div>
  <div class="col-md-4">
-  <h3>Detail</h3>
   <div id="detail">
+   <h3>Railway</h3>
+   <p><a href="javascript:loadStationUsageData()" class="btn btn-primary"><i class="fa fa-map-marker"></i> Load railway station usage data</a></p>
+   <p>This is taken from the <a href="http://orr.gov.uk/statistics/published-stats/station-usage-estimates">Railway station usage data</a> data set from the <a href="http://www.orr.gov.uk">Office of Rail Regulation</a>.</p>
+   <p>Click the marker to show the usage of railway stations in the Leeds City area in 2011/12 compared with 2012/13.</p>
+
+   <h3>Water</h3>
+   <p><a href="javascript:loadWaterCurrentInvestments()" class="btn btn-primary"><i class="fa fa-map-marker"></i> Load water infrastructure works</a></p>
+   <p>This is taken from the <a href="http://www.leedsdatamill.org/dataset/yorkshire-water-current-investments-information-feed">Yorkshire Water Current Investments data feed</a>.</p>
+   <p>Click the marker to show details of the work taking place.</p>
+
+   <h3>Flooding and Planning</h3>
+   <p><a href="javascript:loadOverlayMap()" class="btn btn-primary"><i class="fa fa-map-marker"></i> Load flooding and planning data</a></p>
+   <p>This is taken from the <a href="http://www.geostore.com/environment-agency/WebStore?xml=environment-agency/xml/dataLayers.xml">Environment Agency Flood</a> data.</p>
+   <p><span style="color:green;">Green</span> points are approved planning applications, <span style="color:red;">red</span> are rejected planning applications and <span style="color:blue;">blue</span> are pending applications.</p>
+   <p><span style="color:lightblue;">Light blue</span> lines are rivers, and <span style="color:#faa;">light red</span> areas are at the risk of flooding.</p>
+
   </div>
  </div>
 </div>
 
+
 <div class="row">
- <div class="col-md-4 well">
-  <h3>Data Set</h3>
+ <div class="col-md-6">
+  <h3>Household Waste Recycling</h3>
+  <div id="chart1" style="height: 320px;">
+   <svg></svg>
+  </div>
+  <p>This chart shows the percentage of household waste recycled or composted from 2005 to 2009 (actuals), and the targets from 2010 to 2020</p>
  </div>
- <div class="col-md-4 well">
-  <h3>Data Set</h3>
- </div>
- <div class="col-md-4 well">
-  <h3>Data Set</h3>
+ <div class="col-md-6">
+  <h3>Landfill and Recycling</h3>
+  <div id="chart2" style="height: 320px;">
+   <svg></svg>
+  </div>
+  <p>This chart shows the volumne of waste sent for recycling versus waste sent to landfill</p>
  </div>
 </div>
 
@@ -39,9 +55,58 @@ map(:center => {
 <% content_for :script do %>
 <script type="text/javascript">
 
-loadStationUsageData();
-// loadWaterAlertData();
-loadWaterCurrentInvestments();
+nv.addGraph(function() {
+
+  var chart = nv.models.lineChart();
+
+  chart.xAxis.axisLabel('year').tickFormat(d3.format('f'));
+  chart.yAxis.axisLabel('%age').tickFormat(d3.format('f'));
+
+  var myData = [
+    { values: [ { x: 2005, y: 19.6 }, { x: 2006, y: 21.3 }, { x: 2009, y: 31 } ],
+      key: 'Actuals',
+      color: '#ff0000' },
+
+    { values: [ { x: 2010, y: 30 }, { x: 2015, y: 33 }, { x: 2020, y: 40 } ],
+      key: 'Targets',
+      color: '#0000aa' }
+  ]
+
+  d3.select('#chart1 svg').datum(myData).call(chart);
+
+  nv.utils.windowResize(function() { chart.update() });
+
+})
+
+
+nv.addGraph(function() {
+
+  var chart2 = nv.models.lineChart();
+
+  chart2.xAxis.axisLabel('year').tickFormat(d3.format('f'));
+  chart2.yAxis.axisLabel('%age').tickFormat(d3.format('0,000'));
+
+  var myData2 = [
+
+    { values: [ { x: 2008, y: 87736 }, { x: 2009, y: 97910 }, { x: 2010, y: 96345 }, { x: 2011, y: 107287 }, { x: 2012, y: 116409 }, { x: 2013, y: 123619 } ],
+      key: 'Recycled',
+      color: '#ff0000' },
+
+    { values: [ { x: 2009, y: 225383 }, { x: 2010, y: 212368 }, { x: 2011, y: 210271 }, { x: 2012, y: 194914 }, { x: 2013, y: 184392 } ],
+      key: 'Landfill',
+      color: '#0000aa' },
+
+    { values: [ { x: 2009, y: 310278 }, { x: 2010, y: 308713 }, { x: 2011, y: 317558 }, { x: 2012, y: 311323 }, { x: 2013, y: 308011 } ],
+      key: 'Total',
+      color: '#00ff00' }
+
+  ]
+
+  d3.select('#chart2 svg').datum(myData2).call(chart2);
+
+  nv.utils.windowResize(function() { chart2.update() });
+
+})
 
 </script>
 <% end %>

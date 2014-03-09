@@ -43,7 +43,7 @@ function loadWaterCurrentInvestments() {
   })
 
   $.getJSON('/yw_investments', function(data) {
-    for(var i=0; i<data.length; i++) {
+    for(var i=0; i<data.length - 1; i++) {
       e = data[i];
       var marker = new L.Marker([ e.Latitude, e.Longitude ], { icon: markerStyle });
       var markerText = '<strong>' + e['Name'] + '</strong><br /><em>' + e['Type'] + '</em>';
