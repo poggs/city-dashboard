@@ -1,28 +1,21 @@
-== README
+== Leeds Climate Change Dashboard
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A dashboard to visualise data sets from the Leeds Data Mill relating to climate change.
 
-Things you may want to cover:
+== Who?
 
-* Ruby version
+* Harriet Walsh - @wa1shie
+* Tom Forth - @thomasforth
+* Peter Hicks - @poggs
+* Hannah Draper
 
-* System dependencies
+== What?
 
-* Configuration
+A Ruby on Rails application, hastily cobbled together with coffee, absolutely no testing and little optimisation.  You can probably run it locally if you know how to set up a Rails application, or you can have a look at http://city-dashboard.poggs.co.uk:8081/ (or if that doesn't work, http://city-dashboard.poggs.co.uk/)
 
-* Database creation
+== Data sources and acknowledgements
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* Railway Station Usage Data - Office of Rail Regulation - http://orr.gov.uk/statistics/published-stats/station-usage-estimates
+* Ordnance Survey Code-Point data - http://www.ordnancesurvey.co.uk/business-and-government/products/code-point-open.html
+* Ordnance Survey Railway data - from the Meridian 2 data set at https://www.ordnancesurvey.co.uk/opendatadownload/products.html
+* Yorkshire Water Current Investments data - http://www.leedsdatamill.org/dataset/yorkshire-water-current-investments-information-feed
