@@ -1,3 +1,5 @@
+require 'csv'
+
 class MainController < ApplicationController
 
   def index
