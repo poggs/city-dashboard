@@ -54,3 +54,13 @@ function loadWaterCurrentInvestments() {
   })
 
 }
+
+function loadOverlayMap() {
+
+  var url='/maps/tile/{z}/{x}/{y}.png';
+  var attrib = 'Contains Ordnance Survey data &copy; Crown Copyright and database right 2011 and map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>';
+  var new_layer = new L.TileLayer(url, { tms: true, attribution: attrib});
+
+  new_layer.addTo(map);
+
+}

@@ -17,3 +17,9 @@ test:
 production:
   <<: *common
   database: city_dashboard_production
+
+mapdb:
+  adapter: sqlite3
+  database: 'data/LeedsMap.mbtiles'
+  pool: 5
+  timeout: 5000

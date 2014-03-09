@@ -7,4 +7,6 @@ CityDashboard::Application.routes.draw do
   get '/yw_investments', to: 'main#yw_investments'
   get '/geocode/:postcode', to: 'main#geocode'
 
+  get '/maps/tile/:z/:x/:y', :controller => 'tile_server', :action => 'tile'
+
 end
