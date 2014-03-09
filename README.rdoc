@@ -19,3 +19,9 @@ A Ruby on Rails application, hastily cobbled together with coffee, absolutely no
 * Ordnance Survey Code-Point data - http://www.ordnancesurvey.co.uk/business-and-government/products/code-point-open.html
 * Ordnance Survey Railway data - from the Meridian 2 data set at https://www.ordnancesurvey.co.uk/opendatadownload/products.html
 * Yorkshire Water Current Investments data - http://www.leedsdatamill.org/dataset/yorkshire-water-current-investments-information-feed
+
+* Bootstrap - http://getbootstrap.com/
+* FontAwesome - http://fortawesome.github.io/Font-Awesome/
+* Leaflet - http://leafletjs.org/
+* OpenStreetMap - http://www.openstreetmap.org/
+* Leaflet.awesome-markers - https://github.com/lvoogdt/Leaflet.awesome-markers
