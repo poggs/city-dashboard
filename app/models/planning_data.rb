@@ -21,9 +21,9 @@ class PlanningData < ActiveRecord::Base
   def self.export_data
 
     CSV.open('data/planning_data_points.csv', 'wb') do |csv|
-      csv << [ 'app_number', 'app_status', 'latitude', 'longitude' ]
+      csv << [ 'app_number', 'app_status', 'application_type', 'latitude', 'longitude' ]
       self.all.each do |rec|
-        csv << [ rec.application_number, rec.application_status, rec.longitude, rec.latitude ]
+        csv << [ rec.application_number, rec.application_status, rec.application_type, rec.longitude, rec.latitude ]
       end
     end
 
