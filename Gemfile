@@ -46,7 +46,7 @@ end
 
 # Application-specific gems
 
-gem 'bootstrap-sass', '~> 3.1.1'
+gem 'bootstrap-sass', '~> 3.4.1'
 gem 'font-awesome-sass'
 gem "nvd3-rails", :git => "git@github.com:adeven/nvd3-rails.git", :submodules => true
 gem "leaflet-rails"
